@@ -118,4 +118,18 @@ justify-content: center;
     box-shadow: var(--dark1) 0px 22px 70px 4px;
     transition: 0.3s ease-in-out;
   }
+
+  .link-btn{
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    font-family: var(--pop);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .link-btn:hover{
+    color: blue;
+    transition: 0.3s ease-in-out;
+  }
   

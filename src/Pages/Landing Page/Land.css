@@ -96,31 +96,32 @@
   .hero-top-cont {
     /* border: 1px solid; */
     flex-direction: column-reverse;
-    min-width: 90vw !important;
+    min-width: 95vw !important;
     min-height: 100vh;
     max-height: 100vh;
   }
   .hero-left {
     /* border: 1px solid; */
     min-width: 100%;
-    min-height: 45%;
+    min-height: 60%;
     /* max-height: 44%; */
   }
   .inner-cont-left {
     /* border: 1px solid red;  */
-    min-height: 90%;
+    min-height: 95%;
+    margin-bottom: 20px;
   }
   .hero-right {
     /* border: 1px solid red; */
-    min-height: 55%;
+    min-height: 40%;
     min-width: 100%;
   }
-  .hero-grid-cont{
-    padding: 0px 20px;
+  .hero-grid-cont {
+    /* padding: 0px 10px; */
     padding-top: 10px;
   }
 
   .box {
-    font-size: 90px;
+    font-size: 50px;
   }
 }

@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import Grid from "./Grid";
 import "./Land.css";
+import LeftCont from "./LeftCont";
 
 const HeroTop = () => {
   return (
@@ -7,16 +9,17 @@ const HeroTop = () => {
       <div className="w-85  hero-top-cont">
         {/* top-left-section */}
         <div className="hero-left ">
-          <div className="inner-cont-left ">
-            <h2>Taskify</h2>
-            <button className="button1">Login</button>
-            <button className="button2">Register</button>
-          </div>
+          <LeftCont />
         </div>
         {/* top-right-section */}
-        <div className="hero-right">
-          <Grid/>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="hero-right"
+        >
+          <Grid />
+        </motion.div>
       </div>
     </div>
   );

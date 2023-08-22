@@ -1,8 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Grid = () => {
   return (
-    <div className="hero-grid-cont">
+    <motion.div
+      drag
+      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+      
+      className="hero-grid-cont"
+    >
       <div className="box box-1">T</div>
       <div className="box box-2">a</div>
       <div className="box box-3">s</div>
@@ -10,7 +16,7 @@ const Grid = () => {
       <div className="box box-5">i</div>
       <div className="box box-6">f</div>
       <div className="box box-7">y</div>
-    </div>
+    </motion.div>
   );
 };
 
