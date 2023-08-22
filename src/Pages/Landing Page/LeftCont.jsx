@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Register from "../../Components/Log-RegFroms/Register";
-import Login from "../../Components/Log-RegFroms/Login.Jsx";
+import Login from "../../Components/Log-RegFroms/Login.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { logReg } from "../../ReduxSlices/Log-reg.js";
 
