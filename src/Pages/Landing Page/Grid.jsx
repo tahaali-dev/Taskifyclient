@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import {Link} from "react-router-dom";
 
 const Grid = () => {
   return (
@@ -9,7 +10,10 @@ const Grid = () => {
       
       className="hero-grid-cont"
     >
-      <div className="box box-1">T</div>
+      <div className="box box-1"><Link to="/dash">
+T
+</Link>
+</div>
       <div className="box box-2">a</div>
       <div className="box box-3">s</div>
       <div className="box box-4">k</div>
