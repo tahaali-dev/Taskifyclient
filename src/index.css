@@ -21,14 +21,14 @@
   --pop: "Poppins", sans-serif;
 }
 
-body{
+body {
   /* background-color: var(--back3);  */
   background-image: url(/back2.png);
-  background-position: center;
-  background-size: cover; 
+/* background-repeat: no-repeat; */
+  background-size: cover;
   /* min-width: 100vw;
   max-width: 100vw; */
-} 
+}
 
 /* font-family: 'Bricolage Grotesque', sans-serif;
 font-family: 'Montserrat', sans-serif;
@@ -40,8 +40,8 @@ font-family: 'Poppins', sans-serif; */
 }
 .w-full {
   max-width: 100vw;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .w-85 {
   max-width: 85vw;
@@ -85,51 +85,48 @@ justify-content: center;
 }
 
 /* Buttons  */
-.button1{
-    width: 50%;
-    padding: 10px 0px;
-    background-color: var(--yellow);
-    border: none;
-    border-radius: 30px;
-    font-family: var(--pop);
-    font-size: 19px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+.button1 {
+  width: 50%;
+  padding: 10px 0px;
+  background-color: var(--yellow);
+  border: none;
+  border-radius: 30px;
+  font-family: var(--pop);
+  font-size: 19px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
-.button1:hover{
+.button1:hover {
   box-shadow: var(--yellow) 0px 22px 70px 4px;
   transition: 0.3s ease-in-out;
 }
 
-
-.button2{
-    width: 50%;
-    padding: 10px 0px;
-    background-color: var(--dark1);
-    color: var(--back2);
-    border: none;
-    border-radius: 30px;
-    font-family: var(--pop);
-    font-size: 19px;
+.button2 {
+  width: 50%;
+  padding: 10px 0px;
+  background-color: var(--dark1);
+  color: var(--back2);
+  border: none;
+  border-radius: 30px;
+  font-family: var(--pop);
+  font-size: 19px;
   transition: 0.3s ease-in-out;
-
 }
-.button2:hover{
-    box-shadow: var(--dark1) 0px 22px 70px 4px;
-    transition: 0.3s ease-in-out;
-  }
+.button2:hover {
+  box-shadow: var(--dark1) 0px 22px 70px 4px;
+  transition: 0.3s ease-in-out;
+}
 
-  .link-btn{
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    text-align: center;
-    font-family: var(--pop);
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-  }
-  .link-btn:hover{
-    color: blue;
-    transition: 0.3s ease-in-out;
-  }
-  
+.link-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  font-family: var(--pop);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.link-btn:hover {
+  color: blue;
+  transition: 0.3s ease-in-out;
+}

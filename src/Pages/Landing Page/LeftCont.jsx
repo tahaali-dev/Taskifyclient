@@ -26,7 +26,6 @@ const LeftCont = () => {
   const LoginSet = () => {
     // Setinitail("Login");
     dispatch(logReg("Login"));
-
   };
 
   return (
