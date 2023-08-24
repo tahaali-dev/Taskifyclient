@@ -3,26 +3,96 @@ import "./Card.css";
 
 const Card = () => {
   return (
-     <div className="card-container">
-<div className="card">
-  <div className="title">This Is Task One</div>
-  <div className="task-details">
-    <div className="dt-1 dt">Detail-1</div>
-    <div className="dt-2 dt">Detail-2</div>
-    <div className="dt-3 dt">Detail-3</div>
-    <div className="dt-4 dt">Detail-4</div>
-    <div className="dt-5 dt">Detail-5</div>
-    <div className="dt-6 dt">Detail-6</div>
-  </div>
-</div>
-<div className="card">card1</div>
-<div className="card">card1</div>
-<div className="card">card1</div>
-<div className="card">card1</div>
-</div> 
+    <div className="card-container">
+      <div className="card">
+        <div className="title">
+          <h2>title Of Card dolor</h2>
+        </div>
+        <div className="desc">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+            aliquid rem atque, nam soluta rerum similique voluptatum cum
+            repudiandae tenetur.
+          </p>
+        </div>
+
+        <div className="bottom-card">
+          <i className="fa-solid fa-trash-can delete"></i>
+          <div className="readmore">
+            
+              <i className="fa-solid fa-circle-info"></i>
+          
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="title">
+          <h2>title Of Card dolor,</h2>
+        </div>
+        <div className="desc">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+            aliquid rem atque, nam soluta rerum similique voluptatum cum
+            repudiandae tenetur.
+          </p>
+        </div>
+
+        <div className="bottom-card">
+          <i className="fa-solid fa-trash-can delete"></i>
+          <div className="readmore">
+            
+              <i className="fa-solid fa-circle-info"></i>
+          
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="title">
+          <h2>title Of Card dolor,</h2>
+        </div>
+        <div className="desc">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+            aliquid rem atque, nam soluta rerum similique voluptatum cum
+            repudiandae tenetur.
+          </p>
+        </div>
+
+        <div className="bottom-card">
+          <i className="fa-solid fa-trash-can delete"></i>
+          <div className="readmore">
+            
+              <i className="fa-solid fa-circle-info"></i>
+          
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="title">
+          <h2>title Of Card dolor,</h2>
+        </div>
+        <div className="desc">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+            aliquid rem atque, nam soluta rerum similique voluptatum cum
+            repudiandae tenetur.
+          </p>
+        </div>
+
+        <div className="bottom-card">
+          <i className="fa-solid fa-trash-can delete"></i>
+          <div className="readmore">
+            
+              <i className="fa-solid fa-circle-info"></i>
+          
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default Card;
-
-
