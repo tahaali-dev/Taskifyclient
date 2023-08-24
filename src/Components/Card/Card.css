@@ -1,0 +1,103 @@
+
+
+
+
+.card-container {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .card {
+    /* border: 1px solid green; */
+    height: 40vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    overflow: hidden;
+    border: 1px solid rgba(128, 128, 128, 0.418);
+  }
+  .title {
+    margin-top: 20px;
+    background-color: #ffd966;
+    padding: 8px;
+    font-family: var(--bric);
+    font-size: 19px;
+  }
+  .task-details {
+    /* border: 1px solid white; */
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    "d1 d2 d3"
+    "d4 d4 d5"
+    "d4 d4 d6"
+    ;
+    gap: 5px;
+    padding: 10px;
+  }
+  .dt{
+      /* border: 1px solid; */
+      /* background-color: aliceblue; */
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  
+  }
+  .dt-1{
+      grid-area: d1;
+    background-color: #bbd6b8;
+  
+  }
+  .dt-2{
+      grid-area: d2;
+    background-color: #6096b4;
+  
+  }
+  .dt-3{
+      grid-area: d3;
+    /* background-color: #b8e8fc; */
+    background-color: #bb6464;
+  
+  
+  }
+  .dt-4{
+      grid-area: d4;
+    background-color: #ce7bb0;
+  
+  }
+  .dt-5{
+      grid-area: d5;
+    background-color: #b8e8fc;
+  
+  }
+  .dt-6{
+      grid-area: d6;
+    background-color: white;
+  
+  }
+  
+  
+  @media(max-width:786px){
+      .card-container{
+    grid-template-columns: 1fr 1fr ;
+  
+      }
+      .card{
+          height: 30vh;
+      }
+  }
+
+
+
+
+
+
+
+
+
+
