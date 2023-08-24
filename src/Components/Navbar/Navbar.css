@@ -77,6 +77,8 @@
     background-color: var(--pink);
     min-width: 100%;
     min-height: 6vh;
+    position: sticky;
+    top: 0;
   }
   /* Mobile Nav Bar */
   .mo-nav {
@@ -149,24 +151,19 @@
 .m-menu-2 {
   grid-area: m2;
   background-color: #bbd6b8;
-
 }
 .m-menu-3 {
   grid-area: m3;
   background-color: #6096b4;
-
 }
 .m-menu-4 {
   grid-area: m4;
   background-color: #b8e8fc;
-
 }
 .m-menu-5 {
   grid-area: m5;
   background-color: #bb6464;
-
 }
-.m-m-c{
-    
-display: none;
+.m-m-c {
+  display: none;
 }
