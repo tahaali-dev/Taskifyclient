@@ -8,7 +8,7 @@ const TaskCreation = () => {
         <h2>Create Your Own Task 📝</h2>
         <form>
           <input type="text" placeholder="Add Task Title" />
-          <input type="date" value="2018-07-22"/>
+          <input type="date" value="yyyy-mm-dd"/>
           <textarea
             cols="30"
             rows="10"
