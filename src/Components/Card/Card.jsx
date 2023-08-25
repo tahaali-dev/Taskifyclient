@@ -25,7 +25,7 @@ const Card = () => {
         </div>
 
         <div className="bottom-card">
-          <i className="fa-solid fa-trash-can delete"></i>
+        <i class="fa-solid fa-trash-can deletei"></i>
           <div className="readmore" onClick={() => SingleTaskHandle()}>
             <i className="fa-solid fa-circle-info"></i>
           </div>
@@ -45,7 +45,7 @@ const Card = () => {
         </div>
 
         <div className="bottom-card">
-          <i className="fa-solid fa-trash-can delete"></i>
+          <i className="fa-solid fa-trash-can deletei"></i>
           <div className="readmore" onClick={() => SingleTaskHandle()}>
             <i className="fa-solid fa-circle-info"></i>
           </div>
@@ -65,7 +65,7 @@ const Card = () => {
         </div>
 
         <div className="bottom-card">
-          <i className="fa-solid fa-trash-can delete"></i>
+          <i className="fa-solid fa-trash-can deletei"></i>
           <div className="readmore">
             <i className="fa-solid fa-circle-info"></i>
           </div>
@@ -85,7 +85,8 @@ const Card = () => {
         </div>
 
         <div className="bottom-card">
-          <i className="fa-solid fa-trash-can delete"></i>
+        <i className="fa-solid fa-trash-can deletei"></i>
+
           <div className="readmore">
             <i className="fa-solid fa-circle-info"></i>
           </div>

@@ -7,7 +7,7 @@
 }
 .card {
   /* border: 1px solid green; */
-  height: 42vh;
+  height: 44vh;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -30,8 +30,11 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   text-transform: capitalize;
 }
-.desc {
+.card .desc {
+  /* border: 1px solid; */
+  min-height: 0%;
   padding: 8px;
+  font-size: 15px;
   font-family: var(--pop);
   text-align: justify;
   text-transform: capitalize;
@@ -41,7 +44,8 @@
   display: flex;
   justify-content: space-between;
 }
-.bottom-card .delete {
+.bottom-card .deletei {
+  /* border: 1px solid; */
   font-size: 25px;
   padding: 12px;
   width: 25%;
@@ -53,7 +57,7 @@
   rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transition: 0.3s ease-in-out;
 }
-.delete:hover{
+.deletei:hover{
     background-color: #FF1E00;
     color: white;
     transition: 0.3s ease-in-out;
@@ -86,4 +90,5 @@
   .card {
     height: 47vh;
   }
+ 
 }
