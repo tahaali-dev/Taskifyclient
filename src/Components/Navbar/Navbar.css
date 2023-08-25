@@ -107,7 +107,7 @@
 
 /* Mobile Menu */
 .mobile-menu {
-  position: absolute;
+  position: fixed;
   top: 0;
   /* border: 1px solid; */
   background-color: var(--back3);
@@ -124,6 +124,7 @@
   min-width: 80vw;
   display: grid;
   grid-template-areas:
+    "m6 m6"
     "m1 m2"
     "m1 m3"
     "m4 m5";
@@ -163,6 +164,10 @@
 .m-menu-5 {
   grid-area: m5;
   background-color: #bb6464;
+}
+.m-menu-6 {
+  grid-area: m6;
+  background-color: whitesmoke;
 }
 .m-m-c {
   display: none;

@@ -6,7 +6,7 @@ const TaskCreation = () => {
     <div className="w-full">
       <div className="w-85 task-create-cont">
         <h2>Create Your Own Task 📝</h2>
-        <form>
+        <form className="create-form">
           <input type="text" placeholder="Add Task Title" />
           <div className="date-sel">
             <i className="fa-regular fa-calendar-days"></i>

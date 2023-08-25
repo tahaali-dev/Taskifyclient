@@ -5,6 +5,7 @@ import Dash from "./Pages/Dashboard/Dash";
 import Layout from "./Components/Layout/Layout";
 import SingleTask from "./Pages/SingleTask/SingleTask";
 import TaskCreation from "./Pages/TaskCreationPage/TaskCreation";
+import AllTasks from "./Pages/AlltaskPage/AllTasks";
 // ------------------Imports----------------
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/dash" element={<Dash />} />
           <Route path="/single-task" element={<SingleTask />} />
           <Route path="/create-new" element={<TaskCreation />} />
+          <Route path="/all-tasks" element={<AllTasks />} />
         </Route>
       </Routes>
     </BrowserRouter>

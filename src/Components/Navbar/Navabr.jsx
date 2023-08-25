@@ -24,11 +24,12 @@ const Navabr = () => {
             transition={{ duration: 1 }}
             className="left-nav"
           >
-            <Link className="link">
-              <i className="fa-solid fa-list-ol"></i>All
+            <Link className="link" to="/dash">
+            <i className="fa-solid fa-house"></i>Home
             </Link>
-            <Link className="link">
-              <i className="fa-solid fa-check-double"></i>Done
+
+            <Link className="link" to="/all-tasks">
+              <i className="fa-solid fa-list-ol"></i>All
             </Link>
 
             <Link to="/create-new" className="link">
@@ -36,7 +37,11 @@ const Navabr = () => {
             </Link>
 
             <Link className="link">
-              <i className="fa-solid fa-magnifying-glass"></i>Find
+              <i className="fa-solid fa-check-double"></i>Done
+            </Link>
+
+            <Link className="link">
+              <i className="fa-solid fa-right-from-bracket"></i>Logout
             </Link>
           </motion.div>
           <div className="center">
@@ -62,25 +67,39 @@ const Navabr = () => {
 
       <div className={menu}>
         <div className="m-menu">
-          <Link className=" m-menu-1 menu" onClick={() => SetMenu("m-m-c")}>
+          <Link
+            to="/all-tasks"
+            className=" m-menu-1 menu"
+            onClick={() => SetMenu("m-m-c")}
+          >
             <i className="fa-solid fa-list-ol"></i>All
           </Link>
-          <Link className="m-menu-2 menu" onClick={() => SetMenu("m-m-c")}> 
-            <i className="fa-solid fa-check-double" onClick={() => SetMenu("m-m-c")}></i>Done
+          <Link className="m-menu-2 menu" onClick={() => SetMenu("m-m-c")}>
+            <i
+              className="fa-solid fa-check-double"
+              onClick={() => SetMenu("m-m-c")}
+            ></i>
+            Done
           </Link>
 
-          <Link to="/create-new" className="m-menu-3 menu" onClick={() => SetMenu("m-m-c")}>
+          <Link
+            to="/create-new"
+            className="m-menu-3 menu"
+            onClick={() => SetMenu("m-m-c")}
+          >
             <i className="fa-solid fa-plus"></i>Create
           </Link>
 
           <Link className="m-menu-4 menu" onClick={() => SetMenu("m-m-c")}>
-            <i className="fa-solid fa-magnifying-glass"></i>Find
+          <i className="fa-solid fa-right-from-bracket"></i>Logout
           </Link>
 
-          <Link className="m-menu-5 menu" onClick={MobileMenuHandle}
-          
-      >
+          <Link className="m-menu-5 menu" onClick={MobileMenuHandle}>
             <i className="fa-regular fa-circle-xmark"></i>Close
+          </Link>
+
+          <Link to="/dash" className="m-menu-6 menu" onClick={() => SetMenu("m-m-c")}>
+          <i className="fa-solid fa-house"></i>Home
           </Link>
         </div>
       </div>
