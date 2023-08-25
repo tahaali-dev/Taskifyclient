@@ -25,7 +25,7 @@ const Card = () => {
         </div>
 
         <div className="bottom-card">
-        <i class="fa-solid fa-trash-can deletei"></i>
+        <i className="fa-solid fa-trash-can deletei"></i>
           <div className="readmore" onClick={() => SingleTaskHandle()}>
             <i className="fa-solid fa-circle-info"></i>
           </div>

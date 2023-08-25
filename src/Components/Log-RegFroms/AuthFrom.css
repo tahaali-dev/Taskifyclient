@@ -28,10 +28,16 @@
   border-radius: 30px;
 
 }
-input::placeholder {
+input,::placeholder {
   font-family: var(--pop);
   font-size: 18px;
   text-align: center;
+}
+textarea::placeholder{
+  font-family: var(--pop);
+  text-align: center;
+display: flex;
+align-items: center;
 }
 
 /* Mobile View */
