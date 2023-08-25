@@ -12,6 +12,19 @@
   font-weight: 400;
   font-size: 25px;
 }
+.date-sel{
+    /* border: 1px solid; */
+    min-width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.date-sel i{
+    font-size: 30px;
+    color: var(--back3);
+    align-self: center;
+    margin-left: 22px;
+}
+
 form {
   min-width: 70%;
   max-width: 80%;
@@ -46,5 +59,10 @@ select {
     form{
         /* border: 1px solid; */
         min-width: 90vw;
+    }
+    .date-sel i{
+        border: 1px solid;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

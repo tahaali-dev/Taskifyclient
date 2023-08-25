@@ -8,7 +8,10 @@ const TaskCreation = () => {
         <h2>Create Your Own Task 📝</h2>
         <form>
           <input type="text" placeholder="Add Task Title" />
-          <input type="date" value="yyyy-mm-dd"/>
+          <div className="date-sel">
+            <i className="fa-regular fa-calendar-days"></i>
+            <input type="date" />
+          </div>
           <textarea
             cols="30"
             rows="10"
