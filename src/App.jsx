@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./Pages/AuthPage/AuthPage";
 import Dash from "./Pages/Dashboard/Dash";
 import Layout from "./Components/Layout/Layout";
+import SingleTask from "./Pages/SingleTask/SingleTask";
+// ------------------Imports----------------
 
 export default function App() {
   return (
@@ -11,6 +13,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route  element={<Layout />}>
           <Route path="/dash" element={<Dash />} />
+          <Route path="/single-task" element={<SingleTask />} />
         </Route>
       </Routes>
     </BrowserRouter>

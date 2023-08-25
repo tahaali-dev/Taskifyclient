@@ -11,7 +11,7 @@ const Dash = () => {
       <div className="w-85 Dash ">
         <DashTop />
         <Card />
-        <FooterSec/>
+        
       </div>
     </div>
   );

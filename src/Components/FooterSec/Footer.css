@@ -37,3 +37,8 @@
     font-family: var(--pop);
     font-weight: 400;
 }
+@media(max-width:786px){
+  .footer-cont{
+    min-width: 95vw !important;
+  }
+}

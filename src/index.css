@@ -22,8 +22,7 @@
 }
 
 body {
-  background-color: #BEADFA; 
-
+  background-color: #beadfa;
 }
 
 /* font-family: 'Bricolage Grotesque', sans-serif;
@@ -124,5 +123,41 @@ font-family: 'Poppins', sans-serif; */
 }
 .link-btn:hover {
   color: blue;
+  transition: 0.3s ease-in-out;
+}
+
+/* Button Delete */
+.delete {
+  min-width: 100px;
+  padding: 10px 15px;
+  font-family: var(--mont);
+  border-radius: 15px;
+  border: none;
+  background-color: #f87474;
+  box-shadow: #f87474 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s ease-in-out;
+}
+.delete:hover {
+  background-color: #ff1e00;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+/* Done Button  */
+.done {
+  min-width: 100px;
+  padding: 10px 15px;
+  font-family: var(--mont);
+
+  border-radius: 15px;
+  border: none;
+  background-color: #59ce8f;
+  box-shadow: #59ce8f 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s ease-in-out;
+}
+
+.done:hover {
+  background-color: green;
+  color: white;
   transition: 0.3s ease-in-out;
 }
