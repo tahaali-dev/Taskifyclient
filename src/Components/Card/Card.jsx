@@ -1,6 +1,7 @@
 import React from "react";
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Card = () => {
   const Navigate = useNavigate();
@@ -10,88 +11,32 @@ const Card = () => {
     Navigate("/single-task");
   };
 
+  //Card data Fectch
+  const Tasks = useSelector((state) => state.reducer.user.user.MyTasks);
+  console.log(Tasks);
+
   return (
     <div className="card-container">
-      <div className="card">
-        <div className="title">
-          <h2>title Of Card dolor</h2>
-        </div>
-        <div className="desc">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            aliquid rem atque, nam soluta rerum similique voluptatum cum
-            repudiandae tenetur.
-          </p>
-        </div>
+      {Tasks &&
+        Tasks.map((item) => {
+          return (
+            <div className="card" key={item.id}>
+              <div className="title">
+                <h2>{item.title}</h2>
+              </div>
+              <div className="desc">
+                <p>{item.description}</p>
+              </div>
 
-        <div className="bottom-card">
-        <i className="fa-solid fa-trash-can deletei"></i>
-          <div className="readmore" onClick={() => SingleTaskHandle()}>
-            <i className="fa-solid fa-circle-info"></i>
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
-        <div className="title">
-          <h2>title Of Card dolor,</h2>
-        </div>
-        <div className="desc">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            aliquid rem atque, nam soluta rerum similique voluptatum cum
-            repudiandae tenetur.
-          </p>
-        </div>
-
-        <div className="bottom-card">
-          <i className="fa-solid fa-trash-can deletei"></i>
-          <div className="readmore" onClick={() => SingleTaskHandle()}>
-            <i className="fa-solid fa-circle-info"></i>
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
-        <div className="title">
-          <h2>title Of Card dolor,</h2>
-        </div>
-        <div className="desc">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            aliquid rem atque, nam soluta rerum similique voluptatum cum
-            repudiandae tenetur.
-          </p>
-        </div>
-
-        <div className="bottom-card">
-          <i className="fa-solid fa-trash-can deletei"></i>
-          <div className="readmore">
-            <i className="fa-solid fa-circle-info"></i>
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
-        <div className="title">
-          <h2>title Of Card dolor,</h2>
-        </div>
-        <div className="desc">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            aliquid rem atque, nam soluta rerum similique voluptatum cum
-            repudiandae tenetur.
-          </p>
-        </div>
-
-        <div className="bottom-card">
-        <i className="fa-solid fa-trash-can deletei"></i>
-
-          <div className="readmore">
-            <i className="fa-solid fa-circle-info"></i>
-          </div>
-        </div>
-      </div>
+              <div className="bottom-card">
+                <i className="fa-solid fa-trash-can deletei"></i>
+                <div className="readmore" onClick={() => SingleTaskHandle()}>
+                  <i className="fa-solid fa-circle-info"></i>
+                </div>
+              </div>
+            </div>
+          );
+        })}
     </div>
   );
 };

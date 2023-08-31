@@ -15,10 +15,3 @@ const appSlice = createSlice({
 export const { logReg } = appSlice.actions;
 export const appReducer = appSlice.reducer;
 
-// //Combine Reducers-----------------------------------------
-// import { combineReducers } from "@reduxjs/toolkit";
-
-// export const rootReducer = combineReducers({
-//   app: appReducer,
-//   // ... other reducers
-// });

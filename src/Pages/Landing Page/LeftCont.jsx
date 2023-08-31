@@ -11,7 +11,8 @@ const LeftCont = () => {
   // const Navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const SetAuth = useSelector((state) => state.SetAuth);
+  const SetAuth = useSelector((state) => state.app.SetAuth);
+
 
   // console.log(SetAuth);
 
