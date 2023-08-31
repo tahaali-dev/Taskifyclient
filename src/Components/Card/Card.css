@@ -7,7 +7,8 @@
 }
 .card {
   /* border: 1px solid green; */
-  height: 44vh;
+  max-height: 45vh;
+  min-height: 45vh;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -19,30 +20,41 @@
 .title {
   /* border: 1px solid; */
   /* margin-top: 15px; */
-  padding: 8px;
+  padding: 5px 10px;
   font-family: var(--bric);
   font-size: 17px;
   min-height: 35%;
+  max-height: 35%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f2ead3;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   text-transform: capitalize;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.671);
 }
-.card .desc {
+.desccard {
   /* border: 1px solid; */
-  min-height: 0%;
-  padding: 8px;
+  min-height: 18vh;
+  max-height: 18vh;
+  max-width: 100%;
+  padding: 15px 10px;
   font-size: 15px;
   font-family: var(--pop);
   text-align: justify;
   text-transform: capitalize;
+  margin: 0;
+  margin: 5px 0px;
+  border-radius: 0;
+  overflow: hidden;
 }
 .bottom-card {
   /* border: 1px solid; */
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .bottom-card .deletei {
   /* border: 1px solid; */
@@ -53,14 +65,13 @@
   border-radius: 0px 10px 10px 0px;
   display: flex;
   justify-content: center;
-  box-shadow: #f87474 0px 6px 12px -2px,
-  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: #f87474 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transition: 0.3s ease-in-out;
 }
-.deletei:hover{
-    background-color: #FF1E00;
-    color: white;
-    transition: 0.3s ease-in-out;
+.deletei:hover {
+  background-color: #ff1e00;
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 .readmore {
   min-width: 25%;
@@ -68,19 +79,23 @@
   display: flex;
   justify-content: center;
   border-radius: 10px 0px 0px 10px;
-  box-shadow: #59ce8f 0px 6px 12px -2px,
-  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: #59ce8f 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transition: 0.3s ease-in-out;
-
 }
-.readmore:hover{
-    background-color: green;
-    color: white;
-    transition: 0.3s ease-in-out;
+.readmore:hover {
+  background-color: green;
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 .readmore i {
   font-size: 25px;
   padding: 12px;
+}
+.date {
+  /* border: 1px solid; */
+  font-family: var(--pop);
+  font-size: 15px;
+  color: var(--dark1);
 }
 
 @media (max-width: 786px) {
@@ -88,7 +103,20 @@
     grid-template-columns: 1fr 1fr;
   }
   .card {
-    height: 47vh;
+    min-height: 37vh;
+    max-height: 37vh;
   }
- 
+  .title {
+    min-height: 28%;
+  }
+  .title h2 {
+    font-size: 15px !important;
+  }
+  .desccard p {
+    font-size: 10px;
+    text-align: justify;
+  }
+  .date {
+    font-size: 13px;
+  }
 }

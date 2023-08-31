@@ -21,7 +21,7 @@ const Login = ({ Setinitail }) => {
   //Mutation Run
   const queryClient = useQueryClient();
 
-  const LoginMutation = useMutation(async ({ email, password }) => {
+  const LoginMutation = useMutation("user",async ({ email, password }) => {
     const response = await LoginStudent({ email, password });
     // console.log("loginRes", response);
     dispatch(dataInput(response));

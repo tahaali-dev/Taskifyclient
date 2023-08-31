@@ -12,8 +12,12 @@ const Studentslice = createSlice({
     dataInput: (state, action) => {
       state.user = action.payload;
     },
+    Logout: (state, action) => {
+      state.user = "";
+      localStorage.removeItem("user");
+    },
   },
 });
 
-export const { dataInput } = Studentslice.actions;
+export const { dataInput, Logout } = Studentslice.actions;
 export const Studentreducer = Studentslice.reducer;
