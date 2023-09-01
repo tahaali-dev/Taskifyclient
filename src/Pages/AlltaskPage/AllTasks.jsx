@@ -14,7 +14,7 @@ const AllTasks = () => {
             </p>
             <input type="date" />
             <button>
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
 
@@ -26,7 +26,9 @@ const AllTasks = () => {
             <button className="fltr-btns">other</button>
           </div>
         </div>
-        <Card/>
+        <div className="card-cont-all">
+          <Card />
+        </div>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { RegisterStudent } from "../../Utils/Api";
 import Loader from "../Loader/Loader";
 import { Navigate } from "react-router-dom";
+import { dataInput } from "../../ReduxSlices/studentData";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Register = () => {
   const RegisterMutation = useMutation(async ({ name, email, password }) => {
     const response = await RegisterStudent({ name, email, password });
     console.log("RegisterRes", response);
-    //  dispatch(dataInput(response));
+     dispatch(dataInput(response));
   });
 
   

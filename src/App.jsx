@@ -21,7 +21,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route element={<Layout />}>
           <Route path="/dash" element={<Dash />} />
-          <Route path="/single-task" element={<SingleTask />} />
+          <Route path="/single-task/:id" element={<SingleTask />} />
           <Route path="/create-new" element={<TaskCreation />} />
           <Route path="/all-tasks" element={<AllTasks />} />
         </Route>

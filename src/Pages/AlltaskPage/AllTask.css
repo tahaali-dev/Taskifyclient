@@ -92,30 +92,40 @@
   transition: 0.3s ease-in-out;
 }
 
+.card-cont-all {
+  /* border: 1px solid; */
+  max-width: 61vw;
+  min-width: 61vw;
+}
 
-@media(max-width:786px){
-  .all-task-cont{
+@media (max-width: 786px) {
+  .all-task-cont {
     /* border: 1px solid; */
     min-width: 95vw !important;
   }
-  .search-tab{
+  .search-tab {
     /* border: 1px solid; */
     min-width: 100%;
   }
-  .date-filter{
+  .date-filter {
     /* border: 1px solid; */
     min-width: 100%;
   }
   .date-filter p {
     min-width: 30%;
     font-size: 15px;
-    padding-left: 5px ;
+    padding-left: 5px;
   }
-  .date-filter input{
+  .date-filter input {
     min-width: 50%;
   }
-  .date-filter button{
+  .date-filter button {
     min-width: 20%;
   }
-  
+
+  .card-cont-all {
+    /* border: 1px solid; */
+    max-width: 100%;
+    min-width: 100%;
+  }
 }

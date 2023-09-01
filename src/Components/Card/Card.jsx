@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import { format } from "date-fns";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { GetMyTasks, TaskDelete } from "../../Utils/Api";
 import Loader from "../Loader/Loader";
+import { SaveTasks } from "../../ReduxSlices/studentData";
+// ----------------------------Imports--------------------------------
 
 const Card = () => {
+  const dispatch = useDispatch();
   const Navigate = useNavigate();
 
   //Navigate To Single Task
-  const SingleTaskHandle = () => {
-    Navigate("/single-task");
+  const SingleTaskHandle = (id) => {
+    Navigate(`/single-task/${id}`);
   };
 
   //Card data Fectch
@@ -24,7 +27,16 @@ const Card = () => {
   const { isLoading, isSuccess, data, isError } = useQuery("mytasks", () =>
     GetMyTasks(token)
   );
-  console.log(isLoading, isSuccess, data, isError);
+// console.log(data);
+
+  const handleRefresh = () => {
+    queryClient.invalidateQueries("mytasks");
+  };
+
+  //Use Effect
+  useEffect(() => {
+    handleRefresh();
+  }, []);
 
   //Mutation Run
   const queryClient = useQueryClient();
@@ -55,7 +67,10 @@ const Card = () => {
                   {_.truncate(item.title, { length: 48, omission: "..." })}
                 </h2>
               </div>
-              <div className="desccard">
+              <div
+                className="desccard"
+                onClick={() => SingleTaskHandle(item.id)}
+              >
                 {_.truncate(item.description, { length: 110, omission: "..." })}
                 <p></p>
               </div>
@@ -68,8 +83,8 @@ const Card = () => {
                 <div className="date">
                   {format(new Date(item.date), "dd/MM/yyyy")}
                 </div>
-                <div className="readmore" onClick={() => SingleTaskHandle()}>
-                  <i className="fa-solid fa-circle-info"></i>
+                <div className="readmore">
+                  <i className="fa-solid fa-check-double"></i>
                 </div>
               </div>
             </div>

@@ -1,48 +1,86 @@
 import React from "react";
 import "./SingleTask.css";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { GetMyTasks, TaskDelete } from "../../Utils/Api";
+import { format } from "date-fns";
 
 const SingleTask = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  // console.log(id);
+
+
+
+  //Run Query To Fetch Data
+  const taskdata = JSON.parse(localStorage.getItem("tasks")); 
+  // console.log(taskdata);
+
+  const filterTask = taskdata.filter((item) => {
+    if (id === item.id) {
+      return item;
+    }
+  });
+  // console.log(filterTask);
+
+  //Mutation Run for Delete
+  const queryClient = useQueryClient();
+  const DeleteMutation = useMutation(
+    async (id) => {
+      const response = await TaskDelete(id);
+      if (response) {
+        navigate("/dash");
+      }
+    },
+    {
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries("mytasks");
+      },
+    }
+  );
+
+  //Handle Delete
+  const HandleDelete = (id) => {
+    console.log("On the Way to delete", id);
+    DeleteMutation.mutate(id);
+  };
+
   return (
     <div className="w-full">
-      <div className="w-85 single-task">
-        <div className="title">
-          <h2>This Is Title for frist Single task Page.</h2>
-        </div>
+      {filterTask &&
+        filterTask.map((item) => {
+          return (
+            <div className="w-85 single-task" key={item.id}>
+              <div className="title">
+                <h2>{item.title}</h2>
+              </div>
 
-        <div className="date-cont">
-          <p>25-08-2023</p>
-          <p>html,css,javascript</p>
-          <p className="teacher">By-Taha Ali</p>
-        </div>
+              <div className="date-cont">
+                <p>{format(new Date(item.date), "dd/MM/yyyy")}</p>
+                <p>{item.category}</p>
+                <p className="teacher">{item.createdBy}</p>
+              </div>
 
-        <div className="desc">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas culpa
-            perferendis sapiente ipsa quis alias optio dolorem magnam quia
-            maiores! Unde excepturi dolorem odio in rem fuga ducimus! Saepe,
-            accusantium quaerat officiis iusto amet molestiae perspiciatis at
-            exercitationem doloremque quas quis in corrupti aut repellendus
-            optio soluta laborum totam odit. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quos quaerat ipsum, temporibus
-            expedita recusandae exercitationem vero dolorem, deserunt modi
-            suscipit sint eos libero accusamus ex! Laborum quibusdam reiciendis
-            amet est, iusto maxime unde quis necessitatibus beatae mollitia
-            voluptatum, voluptas minima repellat dolore dolorem cupiditate quae
-            quo minus vero? Itaque, reiciendis! Lorem ipsum dolor sit, amet
-            consectetur adipisicing elit. Rem repellendus excepturi ab aperiam,
-            repudiandae eius quo, hic ullam dolor quos adipisci. Autem
-            doloremque, dolor rem alias minus iste. Quibusdam facere eveniet
-            illum repellat praesentium veniam ipsa neque dolorum voluptatum
-            distinctio officia necessitatibus, in rerum. Labore laboriosam quia
-            totam. Temporibus, perferendis?
-          </p>
-        </div>
+              <div className="desc">
+                <p>{item.description}</p>
+              </div>
 
-        <div className="button-cont">
-          <button className="delete">Delete</button>
-          <button className="done">Done</button>
-        </div>
-      </div>
+              <div className="button-cont">
+                <button
+                  className="delete"
+                  onClick={() => HandleDelete(item.id)}
+                >
+                  <i className="fa-solid fa-trash-can deletei"></i>
+                </button>
+                <button className="done">
+                  <i className="fa-solid fa-check-double"></i>
+                </button>
+              </div>
+            </div>
+          );
+        })}
     </div>
   );
 };

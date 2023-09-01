@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 // ------------------Imports----------------------------
 export const apiUrl = axios.create({
@@ -44,7 +45,7 @@ export const LoginStudent = async ({ email, password }) => {
   }
 };
 
-//Student Login
+//Student Get my Tasks
 export const GetMyTasks = async (token) => {
   try {
     // console.log(token);
@@ -54,6 +55,29 @@ export const GetMyTasks = async (token) => {
       },
     });
     // console.log(response.data);
+    if (response) {
+      localStorage.setItem("tasks",JSON.stringify(response.data))
+      return response.data;
+
+    }
+  } catch (error) {
+    toast.error(error.message);
+    throw error;
+  }
+};
+
+//Student Create Tasks
+export const CreateTaskStudent = async ({ token, sendData }) => {
+  try {
+    console.log(token, sendData);
+    const response = await apiUrl.post("/student/newtask", sendData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response) {
+      toast.success("Your Task Added");
+    }
     return response.data;
   } catch (error) {
     toast.error(error.message);
@@ -69,6 +93,7 @@ export const TaskDelete = async (id) => {
     console.log(response.data);
     if (response) {
       toast.success("Delete Success");
+      return response;
     }
   } catch (error) {
     toast.error(error.message);
