@@ -3,7 +3,7 @@ import "./SingleTask.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { GetMyTasks, TaskDelete } from "../../Utils/Api";
+import { CompletedTaskStudent, GetMyTasks, TaskDelete } from "../../Utils/Api";
 import { format } from "date-fns";
 
 const SingleTask = () => {
@@ -11,12 +11,9 @@ const SingleTask = () => {
   const { id } = useParams();
   // console.log(id);
 
-
-
   //Run Query To Fetch Data
-  const taskdata = JSON.parse(localStorage.getItem("tasks")); 
+  const taskdata = JSON.parse(localStorage.getItem("tasks"));
   // console.log(taskdata);
-
   const filterTask = taskdata.filter((item) => {
     if (id === item.id) {
       return item;
@@ -47,6 +44,41 @@ const SingleTask = () => {
     DeleteMutation.mutate(id);
   };
 
+  //Card data Fectch
+  const token = useSelector((state) => state.reducer.user.token);
+
+  //Mutation Run For completed Task Creation
+  const CompleteTaskMutation = useMutation(
+    async (combinedata) => {
+      const response = await CompletedTaskStudent(combinedata);
+      if (response) {
+        navigate("/dash");
+      }
+    },
+    {
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries("mytasks");
+      },
+    }
+  );
+
+   
+  //Handle Completed
+  const HandleCompleted = (task) => {
+    // console.log(task);
+    const sendData = {
+      title: task.title,
+      description: task.description,
+      category: task.category,
+      createdBy: task.createdBy,
+    };
+    const id = task.id;
+    console.log(id);
+    const combinedata = { token, sendData, id };
+    CompleteTaskMutation.mutate(combinedata);
+  };
+
   return (
     <div className="w-full">
       {filterTask &&
@@ -74,7 +106,7 @@ const SingleTask = () => {
                 >
                   <i className="fa-solid fa-trash-can deletei"></i>
                 </button>
-                <button className="done">
+                <button className="done" onClick={() => HandleCompleted(item)}>
                   <i className="fa-solid fa-check-double"></i>
                 </button>
               </div>

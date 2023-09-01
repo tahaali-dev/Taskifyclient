@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // ------------------Imports----------------------------
 export const apiUrl = axios.create({
-  baseURL: "https://taskify-server-a3p1.onrender.com",
+  baseURL: "https://servertask.onrender.com",
 });
 
 //Student Register
@@ -56,9 +56,8 @@ export const GetMyTasks = async (token) => {
     });
     // console.log(response.data);
     if (response) {
-      localStorage.setItem("tasks",JSON.stringify(response.data))
+      localStorage.setItem("tasks", JSON.stringify(response.data));
       return response.data;
-
     }
   } catch (error) {
     toast.error(error.message);
@@ -94,6 +93,45 @@ export const TaskDelete = async (id) => {
     if (response) {
       toast.success("Delete Success");
       return response;
+    }
+  } catch (error) {
+    toast.error(error.message);
+    throw error;
+  }
+};
+
+//Completed Task Add
+export const CompletedTaskStudent = async ({ token, sendData, id }) => {
+  try {
+    console.log(token, sendData, id);
+    const response = await apiUrl.post(`/student/taskdone/${id}`, sendData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response) {
+      toast.success("Congrates For Your Completed Task");
+    }
+    return response.data;
+  } catch (error) {
+    toast.error(error.message);
+    throw error;
+  }
+};
+
+//Student completed Get my Tasks
+export const GetCompletedTasks = async (token) => {
+  try {
+    // console.log(token);
+    const response = await apiUrl.get("/student/comptasks", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // console.log(response.data);
+    if (response) {
+      localStorage.setItem("tasks", JSON.stringify(response.data));
+      return response.data;
     }
   } catch (error) {
     toast.error(error.message);

@@ -8,6 +8,7 @@ import TaskCreation from "./Pages/TaskCreationPage/TaskCreation";
 import AllTasks from "./Pages/AlltaskPage/AllTasks";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
+import DoneTasks from "./Pages/DoneTasks/donetask";
 // ------------------Imports----------------
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/single-task/:id" element={<SingleTask />} />
           <Route path="/create-new" element={<TaskCreation />} />
           <Route path="/all-tasks" element={<AllTasks />} />
+          <Route path="/done-tasks" element={<DoneTasks />} />
         </Route>
       </Routes>
       <Toaster position="top-center" reverseOrder={false} />

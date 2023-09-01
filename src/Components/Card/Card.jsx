@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import { format } from "date-fns";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { GetMyTasks, TaskDelete } from "../../Utils/Api";
+import { CompletedTaskStudent, GetMyTasks, TaskDelete } from "../../Utils/Api";
 import Loader from "../Loader/Loader";
-import { SaveTasks } from "../../ReduxSlices/studentData";
+import { SaveTasks } from "../../ReduxSlices/studentData.js";
 // ----------------------------Imports--------------------------------
 
 const Card = () => {
@@ -27,7 +27,7 @@ const Card = () => {
   const { isLoading, isSuccess, data, isError } = useQuery("mytasks", () =>
     GetMyTasks(token)
   );
-// console.log(data);
+  // console.log(data);
 
   const handleRefresh = () => {
     queryClient.invalidateQueries("mytasks");
@@ -51,6 +51,32 @@ const Card = () => {
   const HandleDelete = (id) => {
     console.log("On the Way to delete");
     DeleteMutation.mutate(id);
+  };
+
+  //Mutation Run For completed Task Creation
+  const CompleteTaskMutation = useMutation(
+    async (combinedata) => {
+      const response = await CompletedTaskStudent(combinedata);
+    },
+    {
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries("mytasks");
+      },
+    }
+  );
+
+  //Completed Task
+  const HandleCompleted = (task) => {
+    const sendData = {
+      title: task.title,
+      description: task.description,
+      category: task.category,
+      createdBy: task.createdBy,
+    };
+    const id = task.id;
+    const combinedata = { token, sendData,id };
+    CompleteTaskMutation.mutate(combinedata);
   };
 
   return (
@@ -83,7 +109,7 @@ const Card = () => {
                 <div className="date">
                   {format(new Date(item.date), "dd/MM/yyyy")}
                 </div>
-                <div className="readmore">
+                <div className="readmore" onClick={() => HandleCompleted(item)}>
                   <i className="fa-solid fa-check-double"></i>
                 </div>
               </div>

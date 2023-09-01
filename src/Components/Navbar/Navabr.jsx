@@ -46,7 +46,7 @@ const Navabr = () => {
               <i className="fa-solid fa-plus"></i>Create
             </Link>
 
-            <Link className="link">
+            <Link to="/done-tasks" className="link">
               <i className="fa-solid fa-check-double"></i>Done
             </Link>
 
@@ -84,7 +84,7 @@ const Navabr = () => {
           >
             <i className="fa-solid fa-list-ol"></i>All
           </Link>
-          <Link className="m-menu-2 menu" onClick={() => SetMenu("m-m-c")}>
+          <Link to="/done-tasks" className="m-menu-2 menu" onClick={() => SetMenu("m-m-c")}>
             <i
               className="fa-solid fa-check-double"
               onClick={() => SetMenu("m-m-c")}
