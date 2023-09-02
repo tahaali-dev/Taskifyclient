@@ -23,10 +23,8 @@ const Register = () => {
   const RegisterMutation = useMutation(async ({ name, email, password }) => {
     const response = await RegisterStudent({ name, email, password });
     console.log("RegisterRes", response);
-     dispatch(dataInput(response));
+    dispatch(dataInput(response));
   });
-
-  
 
   //Handle Register
   const HandleRegister = (e) => {
@@ -58,6 +56,13 @@ const Register = () => {
               type="text"
               placeholder="Your Email Id 📧"
             />
+            <select>
+              <option>Select Teacher</option>
+              <option>TahaAli(fullStackDev,Tally)</option>
+              <option>Mohammed(frontend dev)</option>
+              <option>Zainab(frontend dev)</option>
+            </select>
+
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}

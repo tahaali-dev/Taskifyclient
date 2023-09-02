@@ -30,7 +30,7 @@ export default function App() {
           <Route path="/done-tasks" element={<DoneTasks />} />
         </Route>
       </Routes>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="bottom-center" reverseOrder={false} />
     </BrowserRouter>
   );
 }
