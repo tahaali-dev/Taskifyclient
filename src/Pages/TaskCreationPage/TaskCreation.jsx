@@ -22,7 +22,9 @@ const TaskCreation = () => {
   const combinedata = { token, sendData };
 
   //Query For Tasks Fetch
-  const { isLoading, data } = useQuery("mytasks", () => GetMyTasks(token));
+  const { isLoading, data, isSuccess } = useQuery("mytasks", () =>
+    GetMyTasks(token)
+  );
 
   //Mutation Run For Task Creation
   const queryClient = useQueryClient();
@@ -31,7 +33,6 @@ const TaskCreation = () => {
       const response = await CreateTaskStudent(combinedata);
       if (response) {
         navigate("/dash");
-        dispatch(SaveTasks(data));
       }
     },
     {
@@ -42,11 +43,17 @@ const TaskCreation = () => {
     }
   );
 
+ 
+
+  console.log(data);
+
   //Handle Task Form Submit
   const HandleSubmit = (e) => {
     e.preventDefault();
     TaskCreateMutation.mutate(combinedata);
   };
+
+
 
   return (
     <div className="w-full">

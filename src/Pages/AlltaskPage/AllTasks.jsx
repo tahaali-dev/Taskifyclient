@@ -4,7 +4,7 @@ import Card from "../../Components/Card/Card";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
-import { GetMyTasks } from "../../Utils/Api";
+import { CompletedTaskStudent, GetMyTasks, TaskDelete } from "../../Utils/Api";
 import _ from "lodash";
 import Loader from "../../Components/Loader/Loader";
 import { SaveTasks } from "../../ReduxSlices/studentData";

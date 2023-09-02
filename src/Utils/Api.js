@@ -103,7 +103,7 @@ export const TaskDelete = async (id) => {
 //Completed Task Add
 export const CompletedTaskStudent = async ({ token, sendData, id }) => {
   try {
-    console.log(token, sendData, id);
+    // console.log(token, sendData, id);
     const response = await apiUrl.post(`/student/taskdone/${id}`, sendData, {
       headers: {
         Authorization: `Bearer ${token}`,

@@ -22,7 +22,13 @@ const Card = () => {
   const token = useSelector((state) => state.reducer.user.token);
 
   //Query For Tasks Fetch
-  const { isLoading, data } = useQuery("mytasks", () => GetMyTasks(token));
+  const { isLoading, data, isSuccess } = useQuery("mytasks", () =>
+    GetMyTasks(token)
+  );
+  // console.log(data, "api");
+  if (isSuccess) {
+    dispatch(SaveTasks(data));
+  }
 
   //Mutation Run For Delete Task
   const queryClient = useQueryClient();
@@ -35,19 +41,19 @@ const Card = () => {
 
   //Handle Delete Function
   const HandleDelete = (id) => {
-    console.log("On the Way to delete");
     DeleteMutation.mutate(id);
   };
 
-
   //Mutation Run For completed Task Creation
   const CompleteTaskMutation = useMutation(
-    (combinedata) => {
-      CompletedTaskStudent(combinedata);
+    async (combinedata) => {
+      const res = await CompletedTaskStudent(combinedata);
+      if (res) {
+        handleRefresh();
+      }
     },
     {
       onSuccess: () => {
-        // Invalidate and refetch
         queryClient.invalidateQueries("mytasks");
       },
     }
@@ -66,14 +72,10 @@ const Card = () => {
     CompleteTaskMutation.mutate(combinedata);
   };
 
-  //reFetch On Refresh
+  // //reFetch On Refresh
   const handleRefresh = () => {
     queryClient.invalidateQueries("mytasks");
   };
- 
-  useEffect(() => {
-    handleRefresh();
-  }, []);
 
   return (
     <div className="card-container">
