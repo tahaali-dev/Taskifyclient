@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import quotes from "../../data.js";
 import { useSelector } from "react-redux";
+import { useQuery } from "react-query";
+import { GetStudents } from "../../../Utils/TeacherApi.js";
 // ----------------------imports-----------------------
 
 const TeacDashTop = () => {
@@ -15,6 +17,14 @@ const TeacDashTop = () => {
   }, [quotes]);
   let newQuote = quotes[randomQuoteIndex];
   //--------------------------
+
+  //Token
+  const token = useSelector((state) => state.reducer.teacherdata.token);
+
+  //Query For getStudents
+  const { isLoading, data, isSuccess } = useQuery("getStudents", () =>
+    GetStudents(token)
+  );
 
   //Name Fetch
   const teachername = useSelector(

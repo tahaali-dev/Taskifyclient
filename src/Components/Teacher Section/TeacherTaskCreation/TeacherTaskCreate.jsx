@@ -15,13 +15,7 @@ const TeacherTaskCreate = () => {
   const combinedata = { title, description, category, createdBy, studentId };
   // console.log(combinedata);
 
-  //Token
-  const token = useSelector((state) => state.reducer.teacherdata.token);
-
-  //Query For getStudents
-  const { isLoading, data, isSuccess } = useQuery("getStudents", () =>
-    GetStudents(token)
-  );
+ 
   const studentdata = useSelector((state) => state.reducer.getStudents);
 
   //Mutation Run For Task Creation
