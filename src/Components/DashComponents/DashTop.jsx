@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./Dash.css";
 import quotes from "../data.js";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import _ from "lodash";
 import { useQuery, useQueryClient } from "react-query";
-import { SearchTasks } from "../../ReduxSlices/studentData";
 import { GetCompletedTasks } from "../../Utils/Api";
+// ----------------------imports-----------------------
 
 const DashTop = () => {
   //Quote Generator----------------
@@ -32,17 +32,15 @@ const DashTop = () => {
 
   const tasknumber = data?.length;
 
+  //reFetch On Refresh
+  const queryClient = useQueryClient();
+  const handleRefresh = () => {
+    queryClient.invalidateQueries("comptasks");
+  };
 
-   //reFetch On Refresh
-   const queryClient = useQueryClient();
-   const handleRefresh = () => {
-     queryClient.invalidateQueries("comptasks");
-   };
- 
-   useEffect(() => {
-     handleRefresh();
-   }, []);
- 
+  useEffect(() => {
+    handleRefresh();
+  }, []);
 
   return (
     <div className="dash-top">

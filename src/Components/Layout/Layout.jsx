@@ -8,11 +8,13 @@ const Layout = () => {
   const user = useSelector((state) => state.reducer.user);
   // console.log("Reducer Layout ", user);
 
+  const teacher = useSelector((state) => state.reducer.teacherdata);
+
   return (
     <>
       <Navabr />
-      {user ?  <Outlet /> : <Navigate to="/" />}
-     
+      {user || teacher ? <Outlet /> : <Navigate to="/" />}
+
       <FooterSec />
     </>
   );

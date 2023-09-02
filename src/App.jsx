@@ -10,18 +10,20 @@ import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import DoneTasks from "./Pages/DoneTasks/donetask";
 import SingleTaskDone from "./Pages/DoneTasks/SingleDone";
+import TeacherLoginPage from "./Pages/TeacherLogin/TeacherLoginPage";
+import TeacherDash from "./Components/Teacher Section/TeacherDash/TeacherDash";
+import TeacherTaskCreate from "./Components/Teacher Section/TeacherTaskCreation/TeacherTaskCreate";
 // ------------------Imports----------------
 
 export default function App() {
-  // const SetAuth = useSelector((state) => state.reducer);
-  // console.log("reducer", SetAuth.userId);
-  // const User = SetAuth.userId;
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/teacherlogin" element={<TeacherLoginPage />} />
         <Route element={<Layout />}>
+          <Route path="/teacherdash" element={<TeacherDash />} />
+          <Route path="/teachertaskcreation" element={<TeacherTaskCreate />} />
           <Route path="/dash" element={<Dash />} />
           <Route path="/single-task/:id" element={<SingleTask />} />
           <Route path="/single-task-done/:id" element={<SingleTaskDone />} />

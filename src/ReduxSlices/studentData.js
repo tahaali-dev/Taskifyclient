@@ -1,14 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const user = JSON.parse(localStorage.getItem("user"));
+const teacher = JSON.parse(localStorage.getItem("teacher"));
 const tasks = JSON.parse(localStorage.getItem("tasks"));
 const comptasks = JSON.parse(localStorage.getItem("comptasks"));
+const getStudents = JSON.parse(localStorage.getItem("getstudent"));
 // console.log("data from local", user);
 
 const Studentslice = createSlice({
   name: "Studentdata",
   initialState: {
     user: user ? user : null,
+    teacherdata: teacher ? teacher : null,
+    getStudents: getStudents ? getStudents : null,
     MyTasks: tasks ? tasks : null,
     TasksSearchcomp: comptasks ? comptasks : null,
   },
@@ -30,9 +34,12 @@ const Studentslice = createSlice({
     SearchTasks: (state, action) => {
       state.TasksSearchcomp = action.payload;
     },
+    teacherInput: (state, action) => {
+      state.teacherdata = action.payload;
+    },
   },
 });
 
-export const { dataInput, Logout, SaveTasks, SearchTasks } =
+export const { dataInput, Logout, SaveTasks, SearchTasks, teacherInput } =
   Studentslice.actions;
 export const Studentreducer = Studentslice.reducer;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Register from "../../Components/Log-RegFroms/Register";
 import Login from "../../Components/Log-RegFroms/Login.jsx";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,6 @@ const LeftCont = () => {
 
   const dispatch = useDispatch();
   const SetAuth = useSelector((state) => state.app.SetAuth);
-
 
   // console.log(SetAuth);
 
@@ -51,6 +50,9 @@ const LeftCont = () => {
       ) : (
         <Login />
       )}
+      <Link to="/teacherlogin" className="teachbtn">
+        <i className="fa-solid fa-chalkboard-user"></i> I am A Teacher{" "}
+      </Link>
     </motion.div>
   );
 };

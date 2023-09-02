@@ -33,7 +33,19 @@
   color: var(--back2);
   text-align: center;
 }
-
+.teachbtn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  font-family: var(--pop);
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  color: var(--dark3);
+}
+.teachbtn:hover {
+  color: white;
+  transition: 0.3s ease-in-out;
+}
 /* Top-hero-right-grid */
 .hero-right {
   /* border: 1px solid; */

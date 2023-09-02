@@ -1,6 +1,5 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 // ------------------Imports----------------------------
 export const apiUrl = axios.create({

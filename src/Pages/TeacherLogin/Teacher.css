@@ -1,0 +1,25 @@
+.main-from-teach {
+  /* border: 1px solid; */
+  width: 85vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.main-from-teach h3 {
+  font-size: 25px;
+  font-family: var(--bric);
+  font-weight: 400;
+}
+
+.t-input {
+  min-width: 50vw;
+}
+
+@media (max-width: 786px) {
+  .t-input {
+    min-width: 90vw;
+  }
+}
