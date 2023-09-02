@@ -4,6 +4,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   margin-top: 10px;
+  min-height: 45vh;
+  min-width: 85vw;
 }
 .card {
   /* border: 1px solid green; */
@@ -23,7 +25,7 @@
   padding: 5px 10px;
   font-family: var(--bric);
   font-size: 17px;
-  min-height: 35%;
+  min-height: 15vh;
   max-height: 35%;
   overflow: hidden;
   display: flex;
@@ -98,16 +100,30 @@
   color: var(--dark1);
 }
 
+.card-container p {
+  /* border: 1px solid; */
+  min-width: 85vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--bric);
+  font-size: 25px;
+  color: var(--dark1);
+}
+
 @media (max-width: 786px) {
   .card-container {
+    /* border: 1px solid; */
     grid-template-columns: 1fr 1fr;
+    min-width: 90vw;
+    min-height: 38vh;
   }
   .card {
     min-height: 37vh;
     max-height: 37vh;
   }
   .title {
-    min-height: 28%;
+    min-height: 10vh;
   }
   .title h2 {
     font-size: 15px !important;
@@ -118,5 +134,9 @@
   }
   .date {
     font-size: 13px;
+  }
+  .card-container p{
+    /* border: 1px solid; */
+    min-width: 95vw;
   }
 }

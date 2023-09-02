@@ -68,7 +68,7 @@ export const GetMyTasks = async (token) => {
 //Student Create Tasks
 export const CreateTaskStudent = async ({ token, sendData }) => {
   try {
-    console.log(token, sendData);
+    // console.log(token, sendData);
     const response = await apiUrl.post("/student/newtask", sendData, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -129,10 +129,10 @@ export const GetCompletedTasks = async (token) => {
       },
     });
     // console.log(response.data);
-    if (response) {
-      localStorage.setItem("tasks", JSON.stringify(response.data));
-      return response.data;
-    }
+
+    localStorage.setItem("comptasks", JSON.stringify(response.data));
+    // console.log(response.data, "api");
+    return response.data;
   } catch (error) {
     toast.error(error.message);
     throw error;

@@ -9,6 +9,7 @@ import AllTasks from "./Pages/AlltaskPage/AllTasks";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import DoneTasks from "./Pages/DoneTasks/donetask";
+import SingleTaskDone from "./Pages/DoneTasks/SingleDone";
 // ------------------Imports----------------
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/dash" element={<Dash />} />
           <Route path="/single-task/:id" element={<SingleTask />} />
+          <Route path="/single-task-done/:id" element={<SingleTaskDone />} />
           <Route path="/create-new" element={<TaskCreation />} />
           <Route path="/all-tasks" element={<AllTasks />} />
           <Route path="/done-tasks" element={<DoneTasks />} />

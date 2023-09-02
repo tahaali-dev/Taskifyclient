@@ -7,38 +7,24 @@ import { format } from "date-fns";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { CompletedTaskStudent, GetMyTasks, TaskDelete } from "../../Utils/Api";
 import Loader from "../Loader/Loader";
-import { SaveTasks } from "../../ReduxSlices/studentData.js";
+import { SaveTasks, SearchTasks } from "../../ReduxSlices/studentData.js";
 // ----------------------------Imports--------------------------------
 
 const Card = () => {
+  //Navigate To Single Task
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-
-  //Navigate To Single Task
   const SingleTaskHandle = (id) => {
     Navigate(`/single-task/${id}`);
   };
 
-  //Card data Fectch
+  //Token Fetch
   const token = useSelector((state) => state.reducer.user.token);
-  // console.log(token);
 
-  //Run Query To Fetch Data
-  const { isLoading, isSuccess, data, isError } = useQuery("mytasks", () =>
-    GetMyTasks(token)
-  );
-  // console.log(data);
+  //Query For Tasks Fetch
+  const { isLoading, data } = useQuery("mytasks", () => GetMyTasks(token));
 
-  const handleRefresh = () => {
-    queryClient.invalidateQueries("mytasks");
-  };
-
-  //Use Effect
-  useEffect(() => {
-    handleRefresh();
-  }, []);
-
-  //Mutation Run
+  //Mutation Run For Delete Task
   const queryClient = useQueryClient();
   const DeleteMutation = useMutation((id) => TaskDelete(id), {
     onSuccess: () => {
@@ -47,16 +33,17 @@ const Card = () => {
     },
   });
 
-  //Handle Delete
+  //Handle Delete Function
   const HandleDelete = (id) => {
     console.log("On the Way to delete");
     DeleteMutation.mutate(id);
   };
 
+
   //Mutation Run For completed Task Creation
   const CompleteTaskMutation = useMutation(
-    async (combinedata) => {
-      const response = await CompletedTaskStudent(combinedata);
+    (combinedata) => {
+      CompletedTaskStudent(combinedata);
     },
     {
       onSuccess: () => {
@@ -75,16 +62,26 @@ const Card = () => {
       createdBy: task.createdBy,
     };
     const id = task.id;
-    const combinedata = { token, sendData,id };
+    const combinedata = { token, sendData, id };
     CompleteTaskMutation.mutate(combinedata);
   };
+
+  //reFetch On Refresh
+  const handleRefresh = () => {
+    queryClient.invalidateQueries("mytasks");
+  };
+ 
+  useEffect(() => {
+    handleRefresh();
+  }, []);
 
   return (
     <div className="card-container">
       {isLoading ? (
         <Loader />
+      ) : data && data.length === 0 ? (
+        <p>No Tasks Avalaible</p>
       ) : (
-        data &&
         data.map((item) => {
           return (
             <div className="card" key={item.id}>

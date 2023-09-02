@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { CompletedTaskStudent, GetMyTasks, TaskDelete } from "../../Utils/Api";
 import { format } from "date-fns";
+// -------------------------Imports----------------
 
 const SingleTask = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  // console.log(id);
 
   //Run Query To Fetch Data
   const taskdata = JSON.parse(localStorage.getItem("tasks"));

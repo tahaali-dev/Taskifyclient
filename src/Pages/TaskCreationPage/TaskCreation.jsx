@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./TaskCreation.css";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { SaveTasks } from "../../ReduxSlices/studentData";
-import { CreateTaskStudent } from "../../Utils/Api";
-import { useSelector } from "react-redux";
+import { CreateTaskStudent, GetMyTasks } from "../../Utils/Api";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 
 const TaskCreation = () => {
+  const dispatch = useDispatch();
   //State Manage (form)
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
@@ -20,6 +21,9 @@ const TaskCreation = () => {
   const token = useSelector((state) => state.reducer.user.token);
   const combinedata = { token, sendData };
 
+  //Query For Tasks Fetch
+  const { isLoading, data } = useQuery("mytasks", () => GetMyTasks(token));
+
   //Mutation Run For Task Creation
   const queryClient = useQueryClient();
   const TaskCreateMutation = useMutation(
@@ -27,6 +31,7 @@ const TaskCreation = () => {
       const response = await CreateTaskStudent(combinedata);
       if (response) {
         navigate("/dash");
+        dispatch(SaveTasks(data));
       }
     },
     {
@@ -42,8 +47,6 @@ const TaskCreation = () => {
     e.preventDefault();
     TaskCreateMutation.mutate(combinedata);
   };
-
- 
 
   return (
     <div className="w-full">
