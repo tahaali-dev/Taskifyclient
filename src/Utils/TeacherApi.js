@@ -58,3 +58,23 @@ export const CreateTaskTeacher = async (sendData) => {
     throw error;
   }
 };
+
+//Get Doubtes
+export const GetDoutes = async (token) => {
+  try {
+    // console.log(token);
+    const response = await apiUrl.get("/teacher/getdoubte", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // console.log(response.data);
+    if (response) {
+      localStorage.setItem("doubte", JSON.stringify(response.data));
+      return response.data;
+    }
+  } catch (error) {
+    toast.error(error.message);
+    throw error;
+  }
+};

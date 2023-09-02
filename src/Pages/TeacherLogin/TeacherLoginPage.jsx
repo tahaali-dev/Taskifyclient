@@ -5,6 +5,7 @@ import { LoginTeacher } from "../../Utils/TeacherApi";
 import { useMutation } from "react-query";
 import { useDispatch } from "react-redux";
 import { teacherInput } from "../../ReduxSlices/studentData";
+import Loader from "../../Components/Loader/Loader";
 
 const TeacherLoginPage = () => {
   //state Handle For From
@@ -36,7 +37,7 @@ const TeacherLoginPage = () => {
       <div className="main-from-teach">
         <h3>Welcome Teacher ❤️</h3>
         {LoginMutation.isLoading ? (
-          "loading"
+          <Loader />
         ) : LoginMutation.isSuccess ? (
           <Navigate to="/teacherdash" />
         ) : (

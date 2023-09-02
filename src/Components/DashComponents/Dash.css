@@ -33,6 +33,7 @@
   font-family: var(--bric);
   font-size: 30px;
   font-weight: 400;
+  text-transform: capitalize;
 }
 .dash-1-right {
   /* border: 1px solid; */
@@ -76,7 +77,6 @@
   align-items: center;
   background-image: url(/party.png);
   background-size: contain;
-
 }
 .dash-2-left h2 {
   font-family: var(--mont);
@@ -140,6 +140,6 @@
   .dash-2-left h2 {
     font-family: var(--mont);
     font-size: 25px;
-   text-align: center;
+    text-align: center;
   }
 }

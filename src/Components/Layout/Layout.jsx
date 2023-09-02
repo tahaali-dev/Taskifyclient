@@ -3,6 +3,8 @@ import Navabr from "../Navbar/Navabr";
 import FooterSec from "../FooterSec/FooterSec";
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import TeacherNavabr from "../Teacher Section/TeacherNav/TeacherNav";
+import TeachFooterSec from "../Teacher Section/TeacherFooter/TeacherFooter";
 
 const Layout = () => {
   const user = useSelector((state) => state.reducer.user);
@@ -12,10 +14,10 @@ const Layout = () => {
 
   return (
     <>
-      <Navabr />
+      {user ? <Navabr /> : <TeacherNavabr />}
       {user || teacher ? <Outlet /> : <Navigate to="/" />}
 
-      <FooterSec />
+      {user ? <FooterSec /> : <TeachFooterSec />}
     </>
   );
 };

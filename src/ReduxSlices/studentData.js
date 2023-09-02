@@ -27,6 +27,15 @@ const Studentslice = createSlice({
       localStorage.removeItem("user");
       localStorage.removeItem("tasks");
       localStorage.removeItem("comptasks");
+      localStorage.removeItem("getstudent");
+      localStorage.removeItem("teacher");
+    },
+    LogoutTeacher: (state, action) => {
+      state.teacherdata = "";
+      state.getStudents = "";
+      localStorage.removeItem("getstudent");
+      localStorage.removeItem("teacher");
+      localStorage.removeItem("doubte");
     },
     SaveTasks: (state, action) => {
       state.MyTasks = action.payload;
@@ -40,6 +49,12 @@ const Studentslice = createSlice({
   },
 });
 
-export const { dataInput, Logout, SaveTasks, SearchTasks, teacherInput } =
-  Studentslice.actions;
+export const {
+  dataInput,
+  Logout,
+  SaveTasks,
+  SearchTasks,
+  teacherInput,
+  LogoutTeacher,
+} = Studentslice.actions;
 export const Studentreducer = Studentslice.reducer;

@@ -1,0 +1,28 @@
+.bottom-teacher {
+  /* border: 1px solid; */
+  display: flex;
+  max-width: 380px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+.bottom-teacher h5 {
+  font-family: var(--pop);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--dark2);
+}
+.teacherdesc {
+  /* border: 1px solid; */
+  min-height: 23vh;
+}
+
+@media (max-width: 786px) {
+  .bottom-teacher {
+    max-width: 340px;
+  }
+  .teacherdesc {
+    /* border: 1px solid; */
+    min-height: 20.5vh;
+  }
+}

@@ -137,3 +137,22 @@ export const GetCompletedTasks = async (token) => {
     throw error;
   }
 };
+
+//Student Create Doute
+export const CreateDoubteStudent = async ({ token, sendData }) => {
+  try {
+    // console.log(token, sendData);
+    const response = await apiUrl.post("/student/ask", sendData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response) {
+      toast.success("Your Doubte Added");
+    }
+    return response.data;
+  } catch (error) {
+    toast.error(error.message);
+    throw error;
+  }
+};

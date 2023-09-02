@@ -13,6 +13,7 @@ import SingleTaskDone from "./Pages/DoneTasks/SingleDone";
 import TeacherLoginPage from "./Pages/TeacherLogin/TeacherLoginPage";
 import TeacherDash from "./Components/Teacher Section/TeacherDash/TeacherDash";
 import TeacherTaskCreate from "./Components/Teacher Section/TeacherTaskCreation/TeacherTaskCreate";
+import Doubte from "./Components/DoutsPage/Doubte";
 // ------------------Imports----------------
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/teacherdash" element={<TeacherDash />} />
           <Route path="/teachertaskcreation" element={<TeacherTaskCreate />} />
+          <Route path="/doutesec" element={<Doubte />} />
           <Route path="/dash" element={<Dash />} />
           <Route path="/single-task/:id" element={<SingleTask />} />
           <Route path="/single-task-done/:id" element={<SingleTaskDone />} />
@@ -32,7 +34,7 @@ export default function App() {
           <Route path="/done-tasks" element={<DoneTasks />} />
         </Route>
       </Routes>
-      <Toaster position="bottom-center" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </BrowserRouter>
   );
 }

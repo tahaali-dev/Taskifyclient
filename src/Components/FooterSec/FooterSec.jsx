@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const FooterSec = () => {
   return (
@@ -9,7 +10,9 @@ const FooterSec = () => {
     "
       >
         <div className="foot-t">
-          <h2>Drop Your Doubts Here ❓</h2>
+          <h2>Drop Your Doubts Here </h2>
+          <Link to="doutesec" className="doutebtn" >Ask </Link>
+          ❓
         </div>
 
         <div className="foot-b">
