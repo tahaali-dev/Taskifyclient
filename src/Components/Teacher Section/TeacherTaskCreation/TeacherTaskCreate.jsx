@@ -15,7 +15,6 @@ const TeacherTaskCreate = () => {
   const combinedata = { title, description, category, createdBy, studentId };
   // console.log(combinedata);
 
- 
   const studentdata = useSelector((state) => state.reducer.getStudents);
 
   //Mutation Run For Task Creation
@@ -58,10 +57,15 @@ const TeacherTaskCreate = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option>Select Type Of Task</option>
+              <option>html</option>
+              <option>css</option>
+              <option>javascript</option>
+              <option>tally</option>
+              <option>english</option>
+              <option>Work</option>
               <option>Personal</option>
               <option>Education</option>
-              <option>Work</option>
-              <option>Other</option>
+              <option>other</option>
             </select>
 
             <select
@@ -69,7 +73,7 @@ const TeacherTaskCreate = () => {
               onChange={(e) => setStudentId(e.target.value)}
             >
               <option>Select Type Of Student</option>
-              {studentdata.map((student, i) => {
+              {studentdata?.map((student, i) => {
                 return (
                   <option key={i} value={student.Studentid}>
                     {student.StudentName}

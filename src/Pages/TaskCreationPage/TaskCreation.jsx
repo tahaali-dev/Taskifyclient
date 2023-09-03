@@ -43,8 +43,6 @@ const TaskCreation = () => {
     }
   );
 
- 
-
   // console.log(data);
 
   //Handle Task Form Submit
@@ -52,8 +50,6 @@ const TaskCreation = () => {
     e.preventDefault();
     TaskCreateMutation.mutate(combinedata);
   };
-
-
 
   return (
     <div className="w-full">
@@ -83,10 +79,15 @@ const TaskCreation = () => {
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option>Select Type Of Task</option>
+                <option>html</option>
+                <option>css</option>
+                <option>javascript</option>
+                <option>tally</option>
+                <option>english</option>
+                <option>Work</option>
                 <option>Personal</option>
                 <option>Education</option>
-                <option>Work</option>
-                <option>Other</option>
+                <option>other</option>
               </select>
               <input
                 value={createdBy}
