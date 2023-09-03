@@ -21,8 +21,11 @@
   --pop: "Poppins", sans-serif;
 }
 
+/* #053B50  dark blue */
+
 body {
-  background-color: #beadfa;
+  /* background-color: #beadfa; */
+  background-color: #ECE2E1;
 }
 
 /* font-family: 'Bricolage Grotesque', sans-serif;

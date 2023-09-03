@@ -11,8 +11,10 @@ const FooterSec = () => {
       >
         <div className="foot-t">
           <h2>Drop Your Doubts Here </h2>
-          <Link to="doutesec" className="doutebtn" >Ask </Link>
-          ❓
+          <Link to="doutesec" className="doutebtn">
+            Ask{" "}
+          </Link>
+          <h2> ❓</h2>
         </div>
 
         <div className="foot-b">

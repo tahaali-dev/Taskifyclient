@@ -57,7 +57,7 @@ const DashTop = () => {
 
       <div className="dash-2">
         <div className="dash-2-left dash">
-          <h2>Your Task 📝 Journey = {tasknumber} </h2>
+          <h2>🌟 Your adventure score: {tasknumber} 🚀  </h2>
         </div>
 
         <div className="dash-2-right dash">

@@ -66,7 +66,6 @@ const DoneTasks = () => {
         <div className="search-tab">
           <div className="date-filter">
             <p>
-              {" "}
               <i className="fa-regular fa-calendar-days"></i>Search By Date
             </p>
             <input
@@ -141,7 +140,7 @@ const DoneTasks = () => {
           <div className="card-container">
             {isLoading ? (
               <Loader />
-            ) : tasks && tasks.length === 0 ? (
+            ) : tasks?.length === 0 ? (
               <p>No Tasks Avalaible</p>
             ) : (
               tasks.map((item) => {

@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 70vh;
 }
 .task-create-cont h2 {
   text-align: center;
@@ -12,32 +13,23 @@
   font-weight: 400;
   font-size: 25px;
 }
-.date-sel{
-    /* border: 1px solid; */
-    min-width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-.date-sel i{
-    font-size: 30px;
-    color: var(--back3);
-    align-self: center;
-    margin-left: 22px;
-}
+
+
 
 .create-form {
   min-width: 70%;
   max-width: 80%;
+  min-height: 70%;
   /* border: 1px solid; */
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark2);
+  background-color: #A8DF8E;
   padding: 20px 0px;
   border-radius: 30px;
-  box-shadow: var(--dark2) 0px 22px 70px 4px;
+  box-shadow: #A8DF8E 0px 22px 70px 4px;
   margin-bottom: 20px;
   margin-top: 10px;
 }

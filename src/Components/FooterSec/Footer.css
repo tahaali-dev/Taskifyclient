@@ -6,7 +6,7 @@
 .foot-t {
   background-color: #f7f7f7;
   min-height: 100px;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 50px 50px 0px 0px;
 }
 
 .foot-b {
@@ -52,5 +52,12 @@
 @media (max-width: 786px) {
   .footer-cont {
     min-width: 95vw !important;
+  }
+  .foot-t{
+    border: 1px solid rgba(0, 0, 0, 0.027);
+    padding: 0px 15px;
+  }
+  .foot-t h2{
+    font-size: 20px;
   }
 }
