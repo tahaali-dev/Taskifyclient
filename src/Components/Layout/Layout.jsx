@@ -12,6 +12,8 @@ const Layout = () => {
 
   const teacher = useSelector((state) => state.reducer.teacherdata);
 
+ 
+
   return (
     <>
       {user ? <Navabr /> : <TeacherNavabr />}

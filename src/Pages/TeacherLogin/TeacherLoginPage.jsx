@@ -31,37 +31,44 @@ const TeacherLoginPage = () => {
   };
 
   //
+  const teacher = JSON.parse(localStorage.getItem("teacher"));
 
   return (
-    <div className="w-full">
-      <div className="main-from-teach">
-        <h3>Welcome Teacher ❤️</h3>
-        {LoginMutation.isLoading ? (
-          <Loader />
-        ) : LoginMutation.isSuccess ? (
-          <Navigate to="/teacherdash" />
-        ) : (
-          <form className="from-cont">
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="text"
-              placeholder="Your Email Id 📧"
-              className="t-input"
-            />
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Your Password 🔑"
-            />
-            <button className="button1" onClick={HandleLogin}>
-              Login
-            </button>
-          </form>
-        )}
-      </div>
-    </div>
+    <>
+      {teacher ? (
+        <Navigate to="/teacherdash" />
+      ) : (
+        <div className="w-full">
+          <div className="main-from-teach">
+            <h3>Welcome Teacher ❤️</h3>
+            {LoginMutation.isLoading ? (
+              <Loader />
+            ) : LoginMutation.isSuccess ? (
+              <Navigate to="/teacherdash" />
+            ) : (
+              <form className="from-cont">
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Your Email Id 📧"
+                  className="t-input"
+                />
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  placeholder="Your Password 🔑"
+                />
+                <button className="button1" onClick={HandleLogin}>
+                  Login
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
