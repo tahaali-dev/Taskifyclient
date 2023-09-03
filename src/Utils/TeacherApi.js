@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 
 // ------------------Imports----------------------------
 export const apiUrl = axios.create({
-  baseURL: "https://servertask.onrender.com",
+  baseURL: "https://drab-rose-yak-boot.cyclic.app",
 });
 
 //Teacher Login
