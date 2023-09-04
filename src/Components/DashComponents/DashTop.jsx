@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import _ from "lodash";
 import { useQuery, useQueryClient } from "react-query";
 import { GetCompletedTasks } from "../../Utils/Api";
+import { motion } from "framer-motion";
+
 // ----------------------imports-----------------------
 
 const DashTop = () => {
@@ -43,7 +45,12 @@ const DashTop = () => {
   }, []);
 
   return (
-    <div className="dash-top">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="dash-top"
+    >
       <div className="dash-1 ">
         <div className="dash-1-left dash">
           <h2>{dataname.user.name}</h2>
@@ -57,7 +64,7 @@ const DashTop = () => {
 
       <div className="dash-2">
         <div className="dash-2-left dash">
-          <h2>🌟 Your adventure score: {tasknumber} 🚀  </h2>
+          <h2>🌟 Your adventure score: {tasknumber} 🚀 </h2>
         </div>
 
         <div className="dash-2-right dash">
@@ -66,7 +73,7 @@ const DashTop = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

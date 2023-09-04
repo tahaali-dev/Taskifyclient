@@ -7,7 +7,9 @@ import { format } from "date-fns";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { CompletedTaskStudent, GetMyTasks, TaskDelete } from "../../Utils/Api";
 import Loader from "../Loader/Loader";
-import { SaveTasks, SearchTasks } from "../../ReduxSlices/studentData.js";
+import { SaveTasks } from "../../ReduxSlices/studentData.js";
+import { motion } from "framer-motion";
+
 // ----------------------------Imports--------------------------------
 
 const Card = () => {
@@ -86,7 +88,11 @@ const Card = () => {
       ) : (
         data.map((item) => {
           return (
-            <div className="card" key={item.id}>
+            <motion.div
+            initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+            className="card" key={item.id}>
               <div className="title">
                 <h2>
                   {_.truncate(item.title, { length: 48, omission: "..." })}
@@ -112,7 +118,7 @@ const Card = () => {
                   <i className="fa-solid fa-check-double"></i>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })
       )}
