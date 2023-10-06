@@ -18,7 +18,7 @@ const DoneTasks = () => {
   const token = useSelector((state) => state.reducer.user.token);
 
   //Run Query To Fetch Data
-  const { isLoading, isSuccess, data, isError } = useQuery("comptasks", () =>
+  const { isLoading, data } = useQuery("comptasks", () =>
     GetCompletedTasks(token)
   );
 
@@ -40,7 +40,6 @@ const DoneTasks = () => {
 
   //data From Redux
   const tasks = useSelector((state) => state.reducer.TasksSearchcomp);
-
   //HandleCategory Search as category
   const HandleCategory = (cat) => {
     console.log(cat);
@@ -59,6 +58,8 @@ const DoneTasks = () => {
   useEffect(() => {
     handleRefresh();
   }, []);
+
+  // console.log(data, !tasks);
 
   return (
     <div className="w-full">
@@ -140,37 +141,79 @@ const DoneTasks = () => {
           <div className="card-container">
             {isLoading ? (
               <Loader />
-            ) : tasks?.length === 0 ? (
-              <p>No Tasks Avalaible</p>
             ) : (
-              tasks.map((item) => {
-                return (
-                  <div className="card" key={item.id}>
-                    <div className="title">
-                      <h2>
-                        {_.truncate(item.title, {
-                          length: 48,
-                          omission: "...",
-                        })}
-                      </h2>
-                    </div>
-                    <div
-                      className="desccard"
-                      onClick={() => SingleTaskHandle(item.id)}
-                    >
-                      {_.truncate(item.description, {
-                        length: 110,
-                        omission: "...",
-                      })}
-                      <p></p>
-                    </div>
+              <>
+                {!tasks ? (
+                  <>
+                    {data?.map((item) => {
+                      return (
+                        <div className="card" key={item.id}>
+                          <div className="title">
+                            <h2>
+                              {_.truncate(item.title, {
+                                length: 48,
+                                omission: "...",
+                              })}
+                            </h2>
+                          </div>
+                          <div
+                            className="desccard"
+                            onClick={() => SingleTaskHandle(item.id)}
+                          >
+                            {_.truncate(item.description, {
+                              length: 110,
+                              omission: "...",
+                            })}
+                            <p></p>
+                          </div>
 
-                    <div className="date date-done">
-                      {format(new Date(item.date), "dd/MM/yyyy")}
-                    </div>
-                  </div>
-                );
-              })
+                          <div className="date date-done">
+                            {format(new Date(item.date), "dd/MM/yyyy")}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>
+                    {tasks.length === 0 ? (
+                      <p>No Tasks AvaLaible</p>
+                    ) : (
+                      <>
+                        {" "}
+                        {tasks?.map((item) => {
+                          return (
+                            <div className="card" key={item.id}>
+                              <div className="title">
+                                <h2>
+                                  {_.truncate(item.title, {
+                                    length: 48,
+                                    omission: "...",
+                                  })}
+                                </h2>
+                              </div>
+                              <div
+                                className="desccard"
+                                onClick={() => SingleTaskHandle(item.id)}
+                              >
+                                {_.truncate(item.description, {
+                                  length: 110,
+                                  omission: "...",
+                                })}
+                                <p></p>
+                              </div>
+
+                              <div className="date date-done">
+                                {format(new Date(item.date), "dd/MM/yyyy")}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </>
+                    )}
+                  </>
+                )}
+              </>
             )}
           </div>
         </div>

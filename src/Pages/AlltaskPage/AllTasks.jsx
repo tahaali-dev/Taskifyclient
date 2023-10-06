@@ -22,13 +22,14 @@ const AllTasks = () => {
   const { isLoading, isSuccess, data, isError } = useQuery("mytasks", () =>
     GetMyTasks(token)
   );
+  // console.log(data);
 
   //data From Redux
   const tasks = useSelector((state) => state.reducer.MyTasks);
 
   //Handle Search Button
   const HandleSearch = () => {
-    console.log("click", date);
+    // console.log("click", date);
     //filter for date
     const datefilterdata = data.filter(
       (item) => format(new Date(item.date), "yyyy-MM-dd") === date
@@ -40,7 +41,7 @@ const AllTasks = () => {
 
   //HandleCategory Search as category
   const HandleCategory = (cat) => {
-    console.log(cat);
+    // console.log(cat);
     const filterdata = data.filter((item) => item.category === cat);
     if (filterdata) {
       dispatch(SaveTasks(filterdata));
@@ -58,7 +59,7 @@ const AllTasks = () => {
 
   //Handle Delete Function
   const HandleDelete = (id) => {
-    console.log("On the Way to delete");
+    // console.log("On the Way to delete");
     DeleteMutation.mutate(id);
   };
 
@@ -100,7 +101,6 @@ const AllTasks = () => {
         <div className="search-tab">
           <div className="date-filter">
             <p>
-              {" "}
               <i className="fa-regular fa-calendar-days"></i>Search By Date
             </p>
             <input
@@ -176,47 +176,78 @@ const AllTasks = () => {
             {isLoading ? (
               <Loader />
             ) : (
-              tasks && tasks.length === 0 ? <p>No Tasks Avalaible</p> :
-              tasks.map((item) => {
-                return (
-                  <div className="card" key={item.id}>
-                    <div className="title">
-                      <h2>
-                        {_.truncate(item.title, {
-                          length: 48,
-                          omission: "...",
-                        })}
-                      </h2>
-                    </div>
-                    <div
-                      className="desccard"
-                      onClick={() => SingleTaskHandle(item.id)}
-                    >
-                      {_.truncate(item.description, {
-                        length: 110,
-                        omission: "...",
-                      })}
-                      <p></p>
-                    </div>
+              <>
+                {!tasks ? (
+                  <>
+                    {data?.map((item) => {
+                      return (
+                        <div className="card" key={item.id}>
+                          <div className="title">
+                            <h2>
+                              {_.truncate(item.title, {
+                                length: 48,
+                                omission: "...",
+                              })}
+                            </h2>
+                          </div>
+                          <div
+                            className="desccard"
+                            onClick={() => SingleTaskHandle(item.id)}
+                          >
+                            {_.truncate(item.description, {
+                              length: 110,
+                              omission: "...",
+                            })}
+                            <p></p>
+                          </div>
 
-                    <div className="bottom-card">
-                      <i
-                        className="fa-solid fa-trash-can deletei"
-                        onClick={() => HandleDelete(item.id)}
-                      ></i>
-                      <div className="date">
-                        {format(new Date(item.date), "dd/MM/yyyy")}
-                      </div>
-                      <div
-                        className="readmore"
-                        onClick={() => HandleCompleted(item)}
-                      >
-                        <i className="fa-solid fa-check-double"></i>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })
+                          <div className="date date-done">
+                            {format(new Date(item.date), "dd/MM/yyyy")}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>
+                    {tasks.length === 0 ? (
+                      <p>No Tasks AvaLaible</p>
+                    ) : (
+                      <>
+                        {" "}
+                        {tasks?.map((item) => {
+                          return (
+                            <div className="card" key={item.id}>
+                              <div className="title">
+                                <h2>
+                                  {_.truncate(item.title, {
+                                    length: 48,
+                                    omission: "...",
+                                  })}
+                                </h2>
+                              </div>
+                              <div
+                                className="desccard"
+                                onClick={() => SingleTaskHandle(item.id)}
+                              >
+                                {_.truncate(item.description, {
+                                  length: 110,
+                                  omission: "...",
+                                })}
+                                <p></p>
+                              </div>
+
+                              <div className="date date-done">
+                                {format(new Date(item.date), "dd/MM/yyyy")}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </>
+                    )}
+                  </>
+                )}
+              </>
             )}
           </div>
         </div>

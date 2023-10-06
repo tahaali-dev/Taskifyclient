@@ -86,9 +86,9 @@ export const CreateTaskStudent = async ({ token, sendData }) => {
 //Task Delete
 export const TaskDelete = async (id) => {
   try {
-    console.log(id);
+    // console.log(id);
     const response = await apiUrl.delete(`/student/deleteTask/${id}`);
-    console.log(response.data);
+    // console.log(response.data);
     if (response) {
       toast.success("Delete Success");
       return response;

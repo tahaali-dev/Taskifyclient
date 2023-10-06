@@ -20,7 +20,7 @@ const Navabr = () => {
 
   //Logout Handle
   const LogoutHandle = () => {
-    console.log("click");
+    // console.log("click");
     dispatch(Logout());
   };
 
