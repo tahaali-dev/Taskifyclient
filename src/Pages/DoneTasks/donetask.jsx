@@ -3,7 +3,7 @@ import "./done.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetCompletedTasks } from "../../Utils/Api";
 import { useQuery, useQueryClient } from "react-query";
-import _ from "lodash";
+import _, { slice } from "lodash";
 import { format } from "date-fns";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
@@ -149,22 +149,13 @@ const DoneTasks = () => {
                       return (
                         <div className="card" key={item.id}>
                           <div className="title">
-                            <h2>
-                              {_.truncate(item.title, {
-                                length: 48,
-                                omission: "...",
-                              })}
-                            </h2>
+                            <h3>{item.title.slice(0, 40)}...</h3>
                           </div>
                           <div
                             className="desccard"
                             onClick={() => SingleTaskHandle(item.id)}
                           >
-                            {_.truncate(item.description, {
-                              length: 110,
-                              omission: "...",
-                            })}
-                            <p></p>
+                            {item.description.slice(0, 55)}...
                           </div>
 
                           <div className="date date-done">
@@ -185,22 +176,13 @@ const DoneTasks = () => {
                           return (
                             <div className="card" key={item.id}>
                               <div className="title">
-                                <h2>
-                                  {_.truncate(item.title, {
-                                    length: 48,
-                                    omission: "...",
-                                  })}
-                                </h2>
+                                <h3>{item.title.slice(0, 40)}...</h3>
                               </div>
                               <div
                                 className="desccard"
                                 onClick={() => SingleTaskHandle(item.id)}
                               >
-                                {_.truncate(item.description, {
-                                  length: 110,
-                                  omission: "...",
-                                })}
-                                <p></p>
+                                {item.description.slice(0, 55)}...
                               </div>
 
                               <div className="date date-done">

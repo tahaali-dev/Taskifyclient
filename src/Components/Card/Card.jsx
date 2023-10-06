@@ -89,21 +89,20 @@ const Card = () => {
         data.map((item) => {
           return (
             <motion.div
-            initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
-            className="card" key={item.id}>
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2 }}
+              className="card"
+              key={item.id}
+            >
               <div className="title">
-                <h2>
-                  {_.truncate(item.title, { length: 48, omission: "..." })}
-                </h2>
+                <h3>{item.title.slice(0, 40)}...</h3>
               </div>
               <div
                 className="desccard"
                 onClick={() => SingleTaskHandle(item.id)}
               >
-                {_.truncate(item.description, { length: 110, omission: "..." })}
-                <p></p>
+                {item.description.slice(0, 55)}...
               </div>
 
               <div className="bottom-card">
@@ -127,5 +126,3 @@ const Card = () => {
 };
 
 export default Card;
-
-

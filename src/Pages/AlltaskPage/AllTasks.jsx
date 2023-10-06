@@ -183,22 +183,13 @@ const AllTasks = () => {
                       return (
                         <div className="card" key={item.id}>
                           <div className="title">
-                            <h2>
-                              {_.truncate(item.title, {
-                                length: 48,
-                                omission: "...",
-                              })}
-                            </h2>
+                            <h3>{item.title.slice(0, 40)}...</h3>
                           </div>
                           <div
                             className="desccard"
                             onClick={() => SingleTaskHandle(item.id)}
                           >
-                            {_.truncate(item.description, {
-                              length: 110,
-                              omission: "...",
-                            })}
-                            <p></p>
+                            {item.description.slice(0, 55)}...
                           </div>
 
                           <div className="date date-done">
@@ -219,22 +210,13 @@ const AllTasks = () => {
                           return (
                             <div className="card" key={item.id}>
                               <div className="title">
-                                <h2>
-                                  {_.truncate(item.title, {
-                                    length: 48,
-                                    omission: "...",
-                                  })}
-                                </h2>
+                                <h3>{item.title.slice(0, 40)}...</h3>
                               </div>
                               <div
                                 className="desccard"
                                 onClick={() => SingleTaskHandle(item.id)}
                               >
-                                {_.truncate(item.description, {
-                                  length: 110,
-                                  omission: "...",
-                                })}
-                                <p></p>
+                                {item.description.slice(0, 55)}...
                               </div>
 
                               <div className="date date-done">
